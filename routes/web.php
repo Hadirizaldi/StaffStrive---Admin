@@ -20,4 +20,4 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Auth::routes();
 
 // department routing
-Route::resource('/departmen', DepartmenController::class);
+Route::resource('/department', DepartmenController::class);

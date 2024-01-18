@@ -3,7 +3,7 @@
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active">
-                    <a href="index.html"><i class
+                    <a href="{{ route("dashboard") }}"><i class
                         ="menu-icon fa fa-laptop"></i>Dashboard </a>
                 </li>
                 <li class="menu-title">Karyawan</li><!-- /.menu-title -->
@@ -16,7 +16,7 @@
 
                 <li class="menu-title">Departemen</li><!-- /.menu-title -->
                 <li class="">
-                    <a href="#"> <i class="menu-icon fa fa-list"></i>Lihat Departemen</a>
+                    <a href="{{ route('department.index') }}"> <i class="menu-icon fa fa-list"></i>Lihat Departemen</a>
                 </li>
                 <li class="">
                     <a href="#"> <i class="menu-icon fa fa-plus"></i>Tambah Departemen</a>
