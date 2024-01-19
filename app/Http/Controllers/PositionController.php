@@ -64,15 +64,30 @@ class PositionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // $position = Position::findOrFail($id)->with('department')->first(); //alternatif cara untuk query
+        $position = Position::with('department')->findOrFail($id);
+        $departments = Department::all();
+        // dd($position);
+
+        return view('pages.positions.edit')->with([
+            'position' => $position,
+            'departments' => $departments
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(PositionRequest $request, string $id)
     {
-        //
+        $data = $request->validated();
+
+        $position = Position::findOrFail($id);
+        // $position = Position::where('id', $id)->first(); //alternatif cara untuk query
+        // dd($position);
+        $position->update($data);
+
+        return redirect()->route('position.index');
     }
 
     /**

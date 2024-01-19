@@ -19,7 +19,7 @@ class Department extends Model
         'name'
     ];
 
-    public function positon(): HasMany
+    public function position(): HasMany
     {
         return $this->hasMany(Position::class, 'department_id', 'id');
     }

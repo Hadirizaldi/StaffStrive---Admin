@@ -60,6 +60,7 @@ class DepartmenController extends Controller
     public function edit(string $id)
     {
         $department = Department::findOrFail($id);
+        dd($department);
 
         return view('pages.departments.edit')->with([
             'department' => $department
@@ -84,11 +85,12 @@ class DepartmenController extends Controller
      */
     public function destroy(string $id)
     {
-        $department = Department::find($id);
+        $department = Department::findOrFail($id);
         $department->delete();
 
         // saat department di delete maka semua department id akan di delete juga
-        Position::where('department_id', $id)->delete();
+        // Position::where('department_id', $id)->delete();
+        $department->position()->delete();
 
         return redirect()->route('department.index');
     }
