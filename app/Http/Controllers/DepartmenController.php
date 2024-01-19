@@ -77,6 +77,11 @@ class DepartmenController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $department = Department::findOrFail($id);
+        $department->delete();
+
+        // saat department di delete maka semua department id akan di delete juga
+
+        return redirect()->route('department.index');
     }
 }
