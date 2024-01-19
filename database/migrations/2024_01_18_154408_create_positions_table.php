@@ -11,7 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::rename('positons', 'positions');
+        Schema::create('positions', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('department_id')->constrained();
+            $table->string('name', 50);
+
+            $table->softDeletes();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::rename('positions', 'positons');
+        Schema::dropIfExists('positons');
     }
 };

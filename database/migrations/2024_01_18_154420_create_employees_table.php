@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('position_id');
+            $table->foreignId('position_id')->constrained();
             $table->string('name', 255);
             $table->string('email');
             $table->string('phone', 20)->nullable();
