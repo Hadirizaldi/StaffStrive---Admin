@@ -57,13 +57,13 @@
     </div>
 @endsection
 
-{{-- @foreach ($departments as $department)
+@foreach ($positions as $position)
     <!-- Modal Konfirmasi Hapus -->
-    <div class="modal fade" id="deleteConfirmationModal{{ $department->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel{{ $department->id }}" aria-hidden="true">
+    <div class="modal fade" id="deleteConfirmationModal{{ $position->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel{{ $position->id }}" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header d-flex">
-                    <h5 class="modal-title" id="deleteConfirmationModalLabel{{ $department->id }}">Konfirmasi Penghapusan</h5>
+                    <h5 class="modal-title" id="deleteConfirmationModalLabel{{ $position->id }}">Konfirmasi Penghapusan</h5>
                     <a type="button" data-dismiss="modal" 
                         aria-label="Close" aria-hidden="true" 
                         class="text-danger fs-4 fw-bolder">
@@ -71,11 +71,11 @@
                     </a>
                 </div>
                 <div class="modal-body">
-                    Apakah Anda yakin ingin menghapus departemen "{{ $department->name }}"?
+                    Apakah Anda yakin ingin menghapus departemen "{{ $position->name }}"?
                 </div>
                 <div class="modal-footer d-flex align-items-start justify-content-end">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <form action="{{ route('department.destroy', $department->id) }}" method="post" class="mr-2">
+                    <form action="{{ route('position.destroy', $position->id) }}" method="post" class="mr-2">
                         @method('delete')
                         @csrf
                         <button type="submit" class="btn btn-danger">Hapus</button>
@@ -84,4 +84,4 @@
             </div>
         </div>
     </div>
-@endforeach --}}
+@endforeach

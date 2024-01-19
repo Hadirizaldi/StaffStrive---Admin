@@ -95,6 +95,11 @@ class PositionController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $position = Position::findOrFail($id);
+        $position->delete();
+
+        // Todo : saat position di delete maka semua employee id akan di delete juga
+
+        return redirect()->route('position.index');
     }
 }

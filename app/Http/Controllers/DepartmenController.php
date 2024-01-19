@@ -88,7 +88,7 @@ class DepartmenController extends Controller
         $department = Department::findOrFail($id);
         $department->delete();
 
-        // saat department di delete maka semua department id akan di delete juga
+        // Todo : saat department di delete maka semua department id akan di delete juga
         // Position::where('department_id', $id)->delete();
         $department->position()->delete();
 
