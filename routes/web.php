@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmenController;
+use App\Http\Controllers\PositionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +22,6 @@ Auth::routes();
 
 // department routing
 Route::resource('/department', DepartmenController::class);
+
+// position routing
+Route::resource('/position', PositionController::class);
