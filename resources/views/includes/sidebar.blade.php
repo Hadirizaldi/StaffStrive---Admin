@@ -19,7 +19,7 @@
                     <a href="{{ route('department.index') }}"> <i class="menu-icon fa fa-list"></i>Lihat Departemen</a>
                 </li>
                 <li class="">
-                    <a href="#"> <i class="menu-icon fa fa-plus"></i>Tambah Departemen</a>
+                    <a href="{{ route('department.create') }}"> <i class="menu-icon fa fa-plus"></i>Tambah Departemen</a>
                 </li>
 
                 <li class="menu-title">Posisi</li><!-- /.menu-title -->
