@@ -52,19 +52,24 @@ class DepartmenController extends Controller
      */
     public function edit(string $id)
     {
-        $item = Department::findOrFail($id);
+        $department = Department::findOrFail($id);
 
         return view('pages.departments.edit')->with([
-            'item' => $item
+            'department' => $department
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(DepartmentRequest $request, string $id)
     {
-        //
+        $data = $request->validated();
+
+        $department = Department::findOrFail("$id");
+        $department->update($data);
+
+        return redirect()->route('department.index');
     }
 
     /**
