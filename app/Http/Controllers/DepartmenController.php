@@ -15,7 +15,7 @@ class DepartmenController extends Controller
     {
         $departments = Department::all();
 
-        return view('departments.index')->with([
+        return view('pages.departments.index')->with([
             "departments" => $departments
         ]);
     }
@@ -25,7 +25,7 @@ class DepartmenController extends Controller
      */
     public function create()
     {
-        return view('departments.create');
+        return view('pages.departments.create');
     }
 
     /**
@@ -52,7 +52,6 @@ class DepartmenController extends Controller
      */
     public function edit(string $id)
     {
-        //
     }
 
     /**
