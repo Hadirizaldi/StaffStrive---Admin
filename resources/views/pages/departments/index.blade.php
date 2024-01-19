@@ -28,7 +28,7 @@
                                                 <a href="#" class="btn btn-info btn-sm">
                                                     <i class="fa fa-external-link"></i>
                                                 </a>
-                                                <a href="#" class="btn btn-primary btn-sm">
+                                                <a href="{{ route('department.edit', $department->id) }}" class="btn btn-primary btn-sm">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
                                             </td>

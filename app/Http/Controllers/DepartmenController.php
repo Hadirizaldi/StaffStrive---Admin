@@ -36,7 +36,7 @@ class DepartmenController extends Controller
         $data = $request->validated();
         Department::create($data);
 
-        redirect()->route('department.index');
+        return redirect()->route('department.index');
     }
 
     /**
@@ -52,6 +52,11 @@ class DepartmenController extends Controller
      */
     public function edit(string $id)
     {
+        $item = Department::findOrFail($id);
+
+        return view('pages.departments.edit')->with([
+            'item' => $item
+        ]);
     }
 
     /**
