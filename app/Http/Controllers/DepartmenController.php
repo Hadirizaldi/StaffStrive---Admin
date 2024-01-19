@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\DepartmentRequest;
 use App\Models\Department;
+use App\Models\Position;
 use Illuminate\Http\Request;
 
 class DepartmenController extends Controller
@@ -77,10 +78,11 @@ class DepartmenController extends Controller
      */
     public function destroy(string $id)
     {
-        $department = Department::findOrFail($id);
+        $department = Department::find($id);
         $department->delete();
 
         // saat department di delete maka semua department id akan di delete juga
+        Position::where('department_id', $id)->delete();
 
         return redirect()->route('department.index');
     }

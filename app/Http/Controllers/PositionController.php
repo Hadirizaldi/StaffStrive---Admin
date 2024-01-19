@@ -40,7 +40,7 @@ class PositionController extends Controller
     {
         $data = $request->validated();
 
-        $positon = Position::create($data);
+        Position::create($data);
 
         return redirect()->route('position.index');
     }
