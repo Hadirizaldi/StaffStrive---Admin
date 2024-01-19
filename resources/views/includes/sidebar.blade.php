@@ -27,7 +27,7 @@
                     <a href="{{ route('position.index') }}"> <i class="menu-icon fa fa-list"></i>Lihat Posisi</a>
                 </li>
                 <li class="">
-                    <a href="{{ route('position.create') }}"> <i class="menu-icon fa fa-list"></i>Tambah Posisi</a>
+                    <a href="{{ route('position.create') }}"> <i class="menu-icon fa fa-plus"></i>Tambah Posisi</a>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->
