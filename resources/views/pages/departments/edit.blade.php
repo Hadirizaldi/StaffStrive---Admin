@@ -23,7 +23,7 @@
       </div>
       <div class="form-group">
         <button class="btn btn-primary btn-block" type="submit">
-          Tambah Departemen
+          Update Departemen
         </button>
       </div>
     </form>

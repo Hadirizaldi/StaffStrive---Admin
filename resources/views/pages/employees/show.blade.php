@@ -22,7 +22,7 @@
                         <dd class="col-sm-8">{{ $employee->age }}</dd>
 
                         <dt class="col-sm-4">Jenis Kelamin:</dt>
-                        <dd class="col-sm-8">{{ $employee->gender }}</dd>
+                        <dd class="col-sm-8">{{ $employee->gender == 'male' ? 'Laki-Laki' : 'Perempuan'}}</dd>
 
                         <dt class="col-sm-4">Status:</dt>
                         <dd class="col-sm-8">{{ $employee->status == 1 ? 'Active' : 'Inactive' }}</dd>

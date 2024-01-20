@@ -92,8 +92,15 @@ class EmployeeControler extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $employee = Employee::findOrFail($id);
+        $positions = Position::all();
+
+        return view('pages.employees.edit')->with([
+            'employee' => $employee,
+            'positions' => $positions
+        ]);
     }
+
 
     /**
      * Update the specified resource in storage.

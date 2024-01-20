@@ -60,7 +60,6 @@ class DepartmenController extends Controller
     public function edit(string $id)
     {
         $department = Department::findOrFail($id);
-        dd($department);
 
         return view('pages.departments.edit')->with([
             'department' => $department
