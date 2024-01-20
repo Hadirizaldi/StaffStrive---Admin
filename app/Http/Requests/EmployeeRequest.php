@@ -29,7 +29,6 @@ class EmployeeRequest extends FormRequest
             'gender' => 'required|in:male,female',
             'age' => 'required|integer|min:18|max:99',
             'photo' => 'required|nullable|image|max:2048',
-            // 'status' => 'required|boolean',
         ];
     }
 }

@@ -86,11 +86,18 @@ class DepartmenController extends Controller
     public function destroy(string $id)
     {
         $department = Department::findOrFail($id);
-        $department->delete();
 
-        // Todo : saat department di delete maka semua department id akan di delete juga
-        // Position::where('department_id', $id)->delete();
-        $department->position()->delete();
+        // Ambil semua posisi yang terkait dengan departemen
+        $positions = $department->position;
+        // dd($positions);
+        // Hapus setiap posisi dan employee secara manual
+        foreach ($positions as $position) {
+            $position->employee()->delete();
+            $position->delete();
+        }
+
+        // Hapus departemen
+        $department->delete();
 
         return redirect()->route('department.index');
     }

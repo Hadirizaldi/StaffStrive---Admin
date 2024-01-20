@@ -99,6 +99,9 @@ class PositionController extends Controller
         $position->delete();
 
         // Todo : saat position di delete maka semua employee id akan di delete juga
+        // Position::where('position_id', $id)->delete();
+        $position->employee()->delete();
+
 
         return redirect()->route('position.index');
     }
