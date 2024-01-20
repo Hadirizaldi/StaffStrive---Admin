@@ -34,6 +34,9 @@ class EmployeeControler extends Controller
     public function create()
     {
         $employees = Employee::all();
+
+        // $employees = Employee::all()->first();
+        // dd($employees->position->department->name);
         // $positions = Position::all();
         $positions = Position::with('department')->get();
         // dd($positions->department->name);
@@ -76,7 +79,12 @@ class EmployeeControler extends Controller
      */
     public function show(string $id)
     {
-        //
+        $employee = Employee::findOrFail($id);
+
+
+        return view('pages.employees.show')->with([
+            'employee' => $employee
+        ]);
     }
 
     /**

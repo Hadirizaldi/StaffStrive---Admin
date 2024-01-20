@@ -28,7 +28,7 @@
                                             <td>{{ $employee->position->name }}</td>
                                             <td>{{ $employee->position->department->name }}</td>
                                             <td>
-                                                <a href="#" class="btn btn-info btn-sm">
+                                                <a href="{{ route('employee.show', $employee->id) }}" class="btn btn-info btn-sm">
                                                     <i class="fa fa-external-link"></i>
                                                 </a>
                                                 <a href="{{ route('employee.edit', $employee->id) }}" class="btn btn-primary btn-sm">
