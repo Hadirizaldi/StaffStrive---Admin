@@ -6,6 +6,7 @@ use App\Http\Requests\EmployeeRequest;
 use App\Models\Employee;
 use App\Models\Position;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class EmployeeControler extends Controller
 {
@@ -61,7 +62,7 @@ class EmployeeControler extends Controller
             // dd($data);
             // path for photo
             $data['photo'] = $request->file('photo')->store(
-                'assets/product',
+                'assets/employees',
                 'public'
             );
 
@@ -105,9 +106,34 @@ class EmployeeControler extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(EmployeeRequest $request, string $id)
     {
-        //
+        try {
+            $employee = Employee::findOrFail($id);
+
+            $data = $request->validated();
+
+            // Jika ada file foto baru di-upload, simpan foto yang baru
+            if ($request->hasFile('photo')) {
+                $data['photo'] = $request->file('photo')->store(
+                    'assets/employees',
+                    'public'
+                );
+
+                // Storage::disk('public')->delete($employee->photo);
+
+                // $filePath = Storage::disk('public')->put('assets/employees', request()->file('photo'), 'public');
+                // $data['photo'] = $filePath;
+            }
+
+            $employee->update($data);
+            Log::info('Employee updated successfully.'); // Tambahkan log ini
+
+            return redirect()->route('employee.index');
+        } catch (\Exception $e) {
+            Log::error('Error updating employee: ' . $e->getMessage()); // Tambahkan log ini
+            dd($e->getMessage());
+        }
     }
 
     /**

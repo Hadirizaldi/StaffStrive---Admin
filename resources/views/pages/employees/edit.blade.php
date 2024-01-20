@@ -23,6 +23,26 @@
                 </div>
 
                 <div class="form-group mb-4">
+                    <label for="phone" class="form-control-label">No telp :</label>
+                    <input type="text" 
+                        name="phone" 
+                        id="phone"
+                        value="{{ old('phone') ? old('phone') : $employee->phone}}"
+                        class="form-control @error('phone') is_invalid @enderror">
+                    @error('phone') <div class="text-danger fs-6">{{ $message }}</div> @enderror
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="age" class="form-control-label">Age</label>
+                    <input type="int" min="18" max="99"
+                        name="age" 
+                        id="age"
+                        value="{{ old('age') ? old('age') : $employee->age}}"
+                        class="form-control @error('age') is_invalid @enderror">
+                    @error('age') <div class="text-danger fs-6">{{ $message }}</div> @enderror
+                </div>
+
+                <div class="form-group mb-4">
                     <label for="gender" class="form-control-label">Jenis Kelamin</label>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="gender" id="male" value="male" {{ old('gender', $employee->gender) == 'male' ? 'checked' : '' }}>
@@ -38,8 +58,8 @@
                 <div class="form-group mb-4">
                     <label for="status" class="form-control-label">Status</label>
                     <select name="status" id="status" class="form-control">
-                        <option value="1" {{ $employee->status == 1 ? 'selected' : '' }}>Active</option>
-                        <option value="0" {{ $employee->status == 0 ? 'selected' : '' }}>Inactive</option>
+                        <option value=1 {{ $employee->status == 1 ? 'selected' : '' }}>Active</option>
+                        <option value=0 {{ $employee->status == 0 ? 'selected' : '' }}>Inactive</option>
                     </select>
                 </div>
 
@@ -56,7 +76,7 @@
                     <select name="position_id" id="position_id" class="form-control @error('position_id') is-invalid @enderror">
                         @foreach ($positions as $position)
                             <option value="{{ $position->id }}" {{ $position->id == $employee->position_id ? 'selected' : '' }}>
-                                {{ $position->name }} - {{ $position->department->name }}
+                                Departemen {{ $position->department->name }} : {{ $position->name }}
                             </option>
                         @endforeach
                     </select>
