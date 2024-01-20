@@ -24,12 +24,12 @@ class EmployeeRequest extends FormRequest
         return [
             'position_id' => 'required|exists:positions,id',
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:employees,email,' . $this->employee,
+            'email' => 'required|email|unique:employees,email',
             'phone' => 'nullable|string|max:20',
             'gender' => 'required|in:male,female',
             'age' => 'required|integer|min:18|max:99',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'status' => 'required|in:active,inactive',
+            'photo' => 'required|nullable|image|max:2048',
+            // 'status' => 'required|boolean',
         ];
     }
 }

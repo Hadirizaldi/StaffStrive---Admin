@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmenController;
+use App\Http\Controllers\EmployeeControler;
 use App\Http\Controllers\PositionController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,6 @@ Route::resource('/department', DepartmenController::class);
 
 // position routing
 Route::resource('/position', PositionController::class);
+
+//  employee routin
+Route::resource('/employee', EmployeeControler::class);

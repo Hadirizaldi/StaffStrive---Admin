@@ -26,8 +26,13 @@ class Employee extends Model
         'status'
     ];
 
+    public function getPhotoAttribute($value)
+    {
+        return url('storage/' . $value);
+    }
+
     // relation with positon model
-    public function department(): BelongsTo
+    public function position(): BelongsTo
     {
         return $this->belongsTo(Position::class, 'position_id', 'id');
     }

@@ -8,10 +8,10 @@
                 </li>
                 <li class="menu-title">Karyawan</li><!-- /.menu-title -->
                 <li class="">
-                    <a href="#"> <i class="menu-icon fa fa-list"></i>Lihat Karyawan</a>
+                    <a href="{{ route('employee.index') }}"> <i class="menu-icon fa fa-list"></i>Lihat Karyawan</a>
                 </li>
                 <li class="">
-                    <a href="#"> <i class="menu-icon fa fa-plus"></i>Tambah Karyawan</a>
+                    <a href="{{ route('employee.create') }}"> <i class="menu-icon fa fa-plus"></i>Tambah Karyawan</a>
                 </li>
 
                 <li class="menu-title">Departemen</li><!-- /.menu-title -->

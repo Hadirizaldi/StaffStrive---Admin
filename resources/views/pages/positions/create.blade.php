@@ -11,10 +11,10 @@
         @csrf
 
         <div class="form-group mb-4">
-          <label for="name-department" class="form-control-label">Nama Position</label>
+          <label for="position" class="form-control-label">Nama Position</label>
           <input type="text" 
             name="name" 
-            id="name-department"
+            id="position"
             value="{{ old('name') }}"
             class="form-control @error('name') is_invalid @enderror">
           @error('name') <div class="text-danger fs-6">{{ $message }}</div> @enderror

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('gender')->nullable();
             $table->integer('age')->nullable();
             $table->string('photo')->nullable();
-            $table->boolean('status');
+            $table->boolean('status')->default(1);
 
             $table->softDeletes();
             $table->timestamps();
