@@ -51,11 +51,25 @@
                                 </tbody>
                             </table>
                         </div>
+                        <div class=" px-4 d-flex justify-content-between align-items-start">
+                            <div class="small text-muted">
+                                Showing
+                                {{ $employees->firstItem() }}
+                                to
+                                {{ $employees->lastItem() }}
+                                of
+                                {{ $employees->total() }}
+                            </div>
+                            <div class="">
+                                {{ $employees->links('pagination::bootstrap-4')}}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 @endsection
 
 @foreach ($employees as $employee)
@@ -86,3 +100,5 @@
         </div>
     </div>
 @endforeach
+
+
